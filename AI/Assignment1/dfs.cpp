@@ -42,17 +42,35 @@ void DFS(Graph const &graph, int v, vector<bool> &visited)
 }
 
 int main()
-{
-    vector<Edge> edges = {
-        {1, 2}, {1, 7}, {1, 8}, {2, 3}, {2, 6}, {3, 4}, {3, 5}, {8, 9}, {8, 12}, {9, 10}, {9, 11}};
-
-    int n = 13;
+{ 
+    cout<<"Enter the number of Edges\n";
+    int numberOfEdges;
+    cin>>numberOfEdges;
+    vector<Edge> edges;
+   
+    for(int i =0;i<numberOfEdges;i++){
+        Edge edge;
+        int src,dest;
+        cout<<"Enter "<<i+1<<"th edge\n";
+        
+        cout<<"source: ";
+        cin>>src;
+        cout<<"destination: ";
+        cin>>dest;
+        
+        edge.src = src;
+        edge.dest = dest;
+        edges.push_back(edge);
+    }
+    int n;
+    cout<<"Enter number of nodes";
+    cin>>n;
     // build a graph from the given edges
     Graph graph(edges, n);
     vector<bool> visited(n);
 
     // Perform DFS traversal from all undiscovered nodes to
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i < n; i++)
     {
         if (visited[i] == false)
         {
