@@ -70,7 +70,7 @@ int main()
     vector<bool> visited(n);
 
     // Perform DFS traversal from all undiscovered nodes to
-    for (int i = 1; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         if (visited[i] == false)
         {

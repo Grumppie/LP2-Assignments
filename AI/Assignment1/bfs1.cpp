@@ -1,64 +1,88 @@
-#include "bits/stdc++.h"
+#include<bits/stdc++.h>
 using namespace std;
-const int N=100;
 
-bool vis[N];
-vector<int> adj[N];
+class node{
+   public:
+   int data;
+   node* left;
+   node* right;
+   
+   node(int data){
+   	this->data = data;
+   	this->left = NULL;
+   	this->right = NULL;
+   }
+};
 
-void recursive_bfs()
-{
-    int node=q.front();
-        q.pop();
-        cout<<node<<endl;
-        vector<int>::iterator it;
-        for(it=adj[node].begin(); it!=adj[node].end(); it++)
-        {
-            if(!vis[*it])
-            {
-                vis[*it]=1;
-                q.push(*it);
-            }
-        }
+node* buildTree(node* root){
+   int data;
+   cout<<"Enter data for node : ";
+   cin>>data;
+   
+   if(data == -1){
+      return NULL;
+   }
+   
+   root = new node(data);
+   
+   cout<<"Enter data for left child of node "<<data<<endl;
+   root->left = buildTree(root->left);
+   
+   cout<<"Enter data for right child of node "<<data<<endl;
+   root->right = buildTree(root->right);
+   
+   return root;
+   
+ }
+ 
+void dfs(node *root){
+    if(root == NULL){
+       return;
+    }
+    
+    dfs(root->left);
+    cout<<root->data<<" ";
+    dfs(root->right);
 }
 
+void bfs(node *root){
+   if(root == NULL){
+      return;
+   }
+   
+   queue<node*> q;
+   q.push(root);
+   
+   while(!q.empty()){
+      node* front = q.front();
+      q.pop();
+      
+      cout<<front->data<<" ";
+      if(front->left){
+         q.push(front->left);
+      }
+      if(front->right){
+         q.push(front->right);
+      }
+   }
+}
+      
+   
+   
+int main(){
+   node* root = NULL;
+   root = buildTree(root);
+   
+   cout<<"DFS Traversal : ";
+   dfs(root);
+   
+   cout<<endl;
+   
+   cout<<"BFS Traversal : ";
+   bfs(root);
+   
+   map<int,int> m;
 
-int main()
-{
-    for(int i=0;i<N;i++)
-        vis[i]=0;
-    int n,m;
-        cout<<"Enter the edges"<<endl;
 
-    cin>> n >> m;
-    int x,y;
-    for(int i=0;i<m;i++)
-    {
-        cin>>x>>y;
-
-        adj[x].push_back(y);
-        adj[y].push_back(x);
-    }
-    queue<int> q;
-    q.push(1);
-    vis[1]=true;
-
-    while(!q.empty())
-    {
-
-        recursive_bfs();
-        // int node=q.front();
-        // q.pop();
-        // cout<<node<<endl;
-        // vector<int>::iterator it;
-        // for(it=adj[node].begin(); it!=adj[node].end(); it++)
-        // {
-        //     if(!vis[*it])
-        //     {
-        //         vis[*it]=1;
-        //         q.push(*it);
-        //     }
-        // }
-    }
-
-    return 0;
+   return 0;
 }
