@@ -80,7 +80,7 @@ def get_neighbors(v):
     else:
         return None
 
-
+'''
 #for simplicity we ll consider heuristic distances given
 #and this function returns heuristic distance for all nodes
 def heuristic(n):
@@ -111,9 +111,9 @@ Graph_nodes = {
     'I': [('E', 5), ('G', 3), ('H', 2), ('J', 3)],
 }
 
-aStarAlgo('A', 'J')
+aStarAlgo('A', 'J')'''
 
-'''
+
 #for simplicity we ll consider heuristic distances given
 #and this function returns heuristic distance for all nodes
 def heuristic(n):
@@ -137,4 +137,4 @@ Graph_nodes = {
     'G': [('B', 9), ('D', 1)]
 }
 
-aStarAlgo('A', 'G')'''
+aStarAlgo('A', 'G')
