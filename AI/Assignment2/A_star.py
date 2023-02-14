@@ -1,5 +1,4 @@
 def aStarAlgo(start_node, stop_node):
-
     open_set = set(start_node)
     closed_set = set()
     g = {}               #store distance from starting node
@@ -19,7 +18,7 @@ def aStarAlgo(start_node, stop_node):
         if n == stop_node or Graph_nodes[n] == None:
             pass
 
-        # for intermediate node
+        #for intermediate node
         else:
             for (m, weight) in get_neighbors(n):
                 # if we are encountering new node 
@@ -44,8 +43,7 @@ def aStarAlgo(start_node, stop_node):
             print('Path does not exist!')
             return None
         
-        # if the current node is the stop_node
-        # then we begin reconstructin the path from it to the start_node
+        # if the current node is the stop_node then we can go back to the path from it to the start
         if n == stop_node:
             path = []
             while parents[n] != n:
