@@ -108,6 +108,9 @@ class Puzzle:
             # sort the open list based on f value
             self.open.sort(key=lambda x: x.fval, reverse=False)
 
-
+# matrix 3X3 
 puz = Puzzle(3)
 puz.process()
+
+
+#for each blank space move 3 child will be calculated and from that 3 puzzle best f value will be selected
