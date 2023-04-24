@@ -2,7 +2,7 @@ N = int(input("Enter no of queens: "))
 
 # for printing boards
 board = [[0]*N for _ in range(N)]
-
+ 
 
 def attack(i, j):
 
