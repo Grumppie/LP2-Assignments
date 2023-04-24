@@ -4,6 +4,7 @@ class Node:
         self.data = data
         self.level = level
         self.fval = fval
+ 
 
     def generate_child(self):
         # Generate hild nodes from the given node by moving the blank space
